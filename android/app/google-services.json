@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "202912918527",
+    "project_id": "terminal-app-c7930",
+    "storage_bucket": "terminal-app-c7930.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:202912918527:android:cf4748d06c95b3542515ca",
+        "android_client_info": {
+          "package_name": "com.example.terminal_mobile_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQy7gqrjdIrgqpaLufbljx3sve9fqfeBQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

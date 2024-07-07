@@ -1,0 +1,44 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:terminal_mobile_app/component_widgets/buttons/estratini/estratini_terminal_button.dart';
+import 'package:terminal_mobile_app/component_widgets/buttons/scamto_terminal_button.dart';
+import 'package:terminal_mobile_app/component_widgets/navbars/terminal_navbar.dart';
+
+class Terminal extends StatelessWidget {
+  final bool loggedIn;
+  final void Function() signOut;
+  final User? loggedInUser;
+
+  Terminal(
+      {super.key,
+      required this.loggedIn,
+      required this.signOut,
+      required this.loggedInUser,
+      });
+
+  @override
+  Widget build(BuildContext context) {
+    print("Over here: $loggedInUser");
+    return Visibility(
+        visible: loggedIn,
+        child: Scaffold(
+          body: CustomScrollView(
+            slivers: <Widget>[
+              TerminalNavbar(),
+              SliverList(
+                delegate: SliverChildListDelegate(
+                  <Widget>[
+                    ListTile(
+                      title: EstratiniTerminalButton(loggedIn: loggedIn),
+                    ),
+                    ListTile(
+                      title: ScamtoTerminalButton(),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ));
+  }
+}
