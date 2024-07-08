@@ -3,8 +3,8 @@ import 'package:terminal_mobile_app/component_widgets/buttons/estratini/estratin
 import 'package:terminal_mobile_app/component_widgets/buttons/estratini/estratini_notifications_button.dart';
 import 'package:terminal_mobile_app/component_widgets/buttons/estratini/estratini_search_button.dart';
 import 'package:terminal_mobile_app/component_widgets/buttons/estratini/estratini_streetcorner_button.dart';
-import 'package:terminal_mobile_app/global_styles/global_styles.dart';
 import 'package:terminal_mobile_app/component_widgets/buttons/terminal_home_button.dart';
+import 'package:terminal_mobile_app/global_styles/global_styles.dart';
 
 class EstratiniNavbar extends StatelessWidget {
   const EstratiniNavbar({super.key});
@@ -51,7 +51,7 @@ class EstratiniNavbar extends StatelessWidget {
             TerminalHomeButton(),
             EstratiniHomeButton(),
             EstratiniNotificationsButton(),
-            EstratiniStreetcornerButton(),
+            EstratiniStreetCornerButton(),
             EstratiniSearchButton(),
           ],
         ),

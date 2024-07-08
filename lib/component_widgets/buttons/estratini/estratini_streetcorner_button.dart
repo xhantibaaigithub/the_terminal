@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:terminal_mobile_app/global_styles/global_styles.dart';
 
-class EstratiniStreetcornerButton extends StatelessWidget {
-  const EstratiniStreetcornerButton({super.key});
+class EstratiniStreetCornerButton extends StatelessWidget {
+  const EstratiniStreetCornerButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +37,7 @@ class EstratiniStreetcornerButton extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
-          Navigator.pushNamed(context, '/estratini/streetcorener');
+          context.go("/streetcorner");
         },
         child: Container(
           decoration: BoxDecoration(shape: BoxShape.circle, boxShadow: [
