@@ -96,6 +96,7 @@ class AuthState extends ChangeNotifier {
   }
 
   bool get loggedIn => _loggedIn;
+
   User? get loggedInUser => _loggedInUser;
 
 }

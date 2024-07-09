@@ -13,6 +13,7 @@ import 'package:terminal_mobile_app/global_styles/global_styles.dart';
 import 'package:terminal_mobile_app/auth/firebaseAuth.dart';
 import 'package:terminal_mobile_app/notifications/Notifications.dart';
 import 'package:terminal_mobile_app/firebase_options.dart';
+import 'package:terminal_mobile_app/top100/top100.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -82,7 +83,21 @@ final _router = GoRouter(
       path: '/estratini',
       builder: (context, state) => Consumer<AuthState>(
         builder: (context, appState, _) => Estratini(
-          loggedIn: appState.loggedIn,
+          loggedInUser: appState.getLoggedInUser,
+        ),
+      ),
+      redirect: (context, state) {
+        final loggedIn = Provider.of<AuthState>(context, listen: false).loggedIn;
+        if (!loggedIn) {
+          return '/login';
+        }
+        return null;
+      },
+    ),
+    GoRoute(
+      path: '/estratini/tophundred',
+      builder: (context, state) => Consumer<AuthState>(
+        builder: (context, appState, _) => Top100(
           loggedInUser: appState.getLoggedInUser,
         ),
       ),

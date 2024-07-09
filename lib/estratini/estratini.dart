@@ -5,12 +5,9 @@ import 'package:terminal_mobile_app/estratini/streetposts.dart';
 import 'package:terminal_mobile_app/estratini/upT24/upt24.dart';
 
 class Estratini extends StatelessWidget {
-  final bool loggedIn;
   final User? loggedInUser;
 
-  const Estratini({super.key,
-    required this.loggedIn,
-    required this.loggedInUser});
+  const Estratini({super.key, required this.loggedInUser});
 
   @override
   Widget build(BuildContext context) {

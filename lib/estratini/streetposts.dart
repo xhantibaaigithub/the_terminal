@@ -9,37 +9,37 @@ class StreetPosts extends StatelessWidget {
     final List<MediaObject> streetposts = [
       MediaObject(
         imagePath: 'assets/images/theTerminal_black.png',
+        userName: 'abcdefghijklmnopqrs',
+        profilePicture: 'assets/images/theTerminal_blue.png',
+        createdAt: DateTime.timestamp(),
+      ),
+      MediaObject(
+        imagePath: 'assets/images/Instagram.png',
+        userName: 'abcdefghijklmnopqrs',
+        profilePicture: 'assets/images/theTerminal_blue.png',
+        createdAt: DateTime.timestamp(),
+      ),
+      MediaObject(
+        imagePath: 'assets/images/ScamtoLogo.png',
+        userName: 'abcdefghijklmnopqrs',
+        profilePicture: 'assets/images/theTerminal_blue.png',
+        createdAt: DateTime.timestamp(),
+      ),
+      MediaObject(
+        imagePath: 'assets/images/Xhanti_Unnamed.png',
         userName: 'abcdefghijklmnopqrst',
         profilePicture: 'assets/images/theTerminal_blue.png',
         createdAt: DateTime.timestamp(),
       ),
       MediaObject(
-        imagePath: 'assets/images/theTerminal_black.png',
-        userName: 'abcdefghijklmnopqrst',
+        imagePath: 'assets/images/wallpaper_process.png',
+        userName: 'abcdefghijklmnopqrs',
         profilePicture: 'assets/images/theTerminal_blue.png',
         createdAt: DateTime.timestamp(),
       ),
       MediaObject(
-        imagePath: 'assets/images/theTerminal_black.png',
-        userName: 'abcdefghijklmnopqrst',
-        profilePicture: 'assets/images/theTerminal_blue.png',
-        createdAt: DateTime.timestamp(),
-      ),
-      MediaObject(
-        imagePath: 'assets/images/theTerminal_black.png',
-        userName: 'abcdefghijklmnopqrst',
-        profilePicture: 'assets/images/theTerminal_blue.png',
-        createdAt: DateTime.timestamp(),
-      ),
-      MediaObject(
-        imagePath: 'assets/images/theTerminal_black.png',
-        userName: 'abcdefghijklmnopqrst',
-        profilePicture: 'assets/images/theTerminal_blue.png',
-        createdAt: DateTime.timestamp(),
-      ),
-      MediaObject(
-        imagePath: 'assets/images/theTerminal_black.png',
-        userName: 'abcdefghijklmnopqrst',
+        imagePath: 'assets/images/theTerminal_blue.png',
+        userName: 'abcdefghijklmnopqrs',
         profilePicture: 'assets/images/theTerminal_blue.png',
         createdAt: DateTime.timestamp(),
       ),
@@ -142,6 +142,12 @@ class StreetPosts extends StatelessWidget {
                                   ],
                                 ),
                               ),
+                              Container(
+                                child: Image.asset(
+                                  mediaObject.imagePath,
+                                  fit: BoxFit.cover,
+                                ),
+                              )
                             ],
                           )),
                         ),

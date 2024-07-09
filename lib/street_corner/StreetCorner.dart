@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../component_widgets/navbars/estratini_navbar.dart';
 import '../global_styles/global_styles.dart';
@@ -7,7 +8,7 @@ import '../global_styles/global_styles.dart';
 class StreetCorner extends StatelessWidget {
   final User? loggedInUser;
 
-  const StreetCorner({super.key, this.loggedInUser});
+  const StreetCorner({super.key, required this.loggedInUser});
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +31,17 @@ class StreetCorner extends StatelessWidget {
                       children: [
                         StreetCornerHeader,
                         Container(
-                          margin: EdgeInsets.only(top: 15.0),
+                          margin: EdgeInsets.only(
+                              top: 15.0, right: 15.0, left: 15.0),
                           child: Column(
                             children: [
-                              Top100Button,
+                              InkWell(
+                                  onTap: () {
+                                    loggedInUser != null
+                                        ? context.go('/estratini/tophundred')
+                                        : context.go('/login');
+                                  },
+                                  child: Top100Button),
                               KhalendaButton,
                               Bottom100Button
                             ],
@@ -52,54 +60,56 @@ class StreetCorner extends StatelessWidget {
   }
 }
 
-final Top100Button = Container(
-  width: double.infinity * 0.9,
-  margin: EdgeInsets.symmetric(vertical: 35.0),
-  decoration: BoxDecoration(
-    image: DecorationImage(
-      image: AssetImage("assets/images/top_100_header.png"),
-      // Replace with your background image path
-      fit: BoxFit.cover, // Adjust fit as needed
+final Top100Button = InkWell(
+  child: Container(
+    width: double.infinity * 0.9,
+    margin: EdgeInsets.symmetric(vertical: 35.0),
+    decoration: BoxDecoration(
+      image: DecorationImage(
+        image: AssetImage("assets/images/top_100_header.png"),
+        // Replace with your background image path
+        fit: BoxFit.cover, // Adjust fit as needed
+      ),
+      color: Colors.blue, // Fallback color in case the image doesn't load
+      borderRadius: BorderRadius.all(
+        Radius.circular(35.0),
+      ),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.black,
+          spreadRadius: 8.0,
+          blurRadius: 15,
+          blurStyle: BlurStyle.outer,
+          offset: Offset(0, 0),
+        ),
+        BoxShadow(
+          color: GlobalStyles.streetGrey,
+          spreadRadius: 5.0,
+          blurRadius: 2,
+          blurStyle: BlurStyle.inner,
+          offset: Offset(0, 0),
+        ),
+        BoxShadow(
+          color: Colors.black,
+          spreadRadius: 5.0,
+          blurRadius: 10,
+          blurStyle: BlurStyle.outer,
+          offset: Offset(0, 7),
+        ),
+      ],
     ),
-    color: Colors.blue, // Fallback color in case the image doesn't load
-    borderRadius: BorderRadius.all(
-      Radius.circular(35.0),
-    ),
-    boxShadow: [
-      BoxShadow(
-        color: Colors.black,
-        spreadRadius: 8.0,
-        blurRadius: 15,
-        blurStyle: BlurStyle.outer,
-        offset: Offset(0, 0),
+    child: Center(
+      child: Text(
+        'Top 100'
+        '',
+        style: TextStyle(
+          fontSize: 25.0,
+          backgroundColor: Colors.black26,
+          color: GlobalStyles.backgroundWhite,
+          fontWeight: FontWeight.bold,
+        ),
+        textAlign: TextAlign.center,
       ),
-      BoxShadow(
-        color: GlobalStyles.streetGrey,
-        spreadRadius: 5.0,
-        blurRadius: 2,
-        blurStyle: BlurStyle.inner,
-        offset: Offset(0, 0),
-      ),
-      BoxShadow(
-        color: Colors.black,
-        spreadRadius: 5.0,
-        blurRadius: 10,
-        blurStyle: BlurStyle.outer,
-        offset: Offset(0, 7),
-      ),
-    ],
-  ),
-  child: Center(
-    child: Text(
-      'Top 100'
-      '',
-      style: TextStyle(
-        fontSize: 25.0,
-        backgroundColor: Colors.black26,
-        color: GlobalStyles.backgroundWhite,
-        fontWeight: FontWeight.bold,
-      ),
-      textAlign: TextAlign.center,
     ),
   ),
 );

@@ -9,27 +9,27 @@ class UpT24 extends StatelessWidget {
     final List<MediaObject> upT24Posts = [
       MediaObject(
         imagePath: 'assets/images/theTerminal_black.png',
-        text: 'abcdefghijklmnopqrst',
+        text: 'abcdefghijklmnopqrs',
       ),
       MediaObject(
         imagePath: 'assets/images/theTerminal_black.png',
-        text: 'abcdefghijklmnopqrst',
+        text: 'abcdefghijklmnopqrs',
       ),
       MediaObject(
         imagePath: 'assets/images/theTerminal_black.png',
-        text: 'abcdefghijklmnopqrst',
+        text: 'abcdefghijklmnopqrs',
       ),
       MediaObject(
         imagePath: 'assets/images/theTerminal_black.png',
-        text: 'abcdefghijklmnopqrst',
+        text: 'abcdefghijklmnopqrs',
       ),
       MediaObject(
         imagePath: 'assets/images/theTerminal_black.png',
-        text: 'abcdefghijklmnopqrst',
+        text: 'abcdefghijklmnopqrs',
       ),
       MediaObject(
         imagePath: 'assets/images/theTerminal_black.png',
-        text: 'abcdefghijklmnopqrst',
+        text: 'abcdefghijklmnopqrs',
       ),
     ];
 
