@@ -6,38 +6,38 @@ class StreetPosts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<MediaObject> streetposts = [
-      MediaObject(
+    final List<StreetPost> streetposts = [
+      StreetPost(
         imagePath: 'assets/images/theTerminal_black.png',
         userName: 'abcdefghijklmnopqrs',
         profilePicture: 'assets/images/theTerminal_blue.png',
         createdAt: DateTime.timestamp(),
       ),
-      MediaObject(
+      StreetPost(
         imagePath: 'assets/images/Instagram.png',
         userName: 'abcdefghijklmnopqrs',
         profilePicture: 'assets/images/theTerminal_blue.png',
         createdAt: DateTime.timestamp(),
       ),
-      MediaObject(
+      StreetPost(
         imagePath: 'assets/images/ScamtoLogo.png',
         userName: 'abcdefghijklmnopqrs',
         profilePicture: 'assets/images/theTerminal_blue.png',
         createdAt: DateTime.timestamp(),
       ),
-      MediaObject(
+      StreetPost(
         imagePath: 'assets/images/Xhanti_Unnamed.png',
         userName: 'abcdefghijklmnopqrst',
         profilePicture: 'assets/images/theTerminal_blue.png',
         createdAt: DateTime.timestamp(),
       ),
-      MediaObject(
+      StreetPost(
         imagePath: 'assets/images/wallpaper_process.png',
         userName: 'abcdefghijklmnopqrs',
         profilePicture: 'assets/images/theTerminal_blue.png',
         createdAt: DateTime.timestamp(),
       ),
-      MediaObject(
+      StreetPost(
         imagePath: 'assets/images/theTerminal_blue.png',
         userName: 'abcdefghijklmnopqrs',
         profilePicture: 'assets/images/theTerminal_blue.png',
@@ -45,132 +45,101 @@ class StreetPosts extends StatelessWidget {
       ),
     ];
 
+    Widget StreetPostTopBar(StreetPost streetPost) {
+      return Container(
+        margin: EdgeInsets.only(bottom: 15.0),
+        child: Row(
+          children: [
+            ClipOval(
+              child: Image.asset(
+                streetPost.profilePicture,
+                width: 50.0,
+                height: 50.0,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Container(
+              width: 180.0,
+              padding: EdgeInsets.symmetric(
+                vertical: 5.0,
+              ),
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black,
+                    spreadRadius: 5.0,
+                    blurRadius: 5.0,
+                    blurStyle: BlurStyle.outer,
+                  ),
+                ],
+                borderRadius: BorderRadius.horizontal(
+                  left: Radius.circular(20.0),
+                  right: Radius.circular(20.0),
+                ),
+                color: GlobalStyles.streetGrey
+                    .withOpacity(0.8), // Background color
+              ),
+              child: Text(
+                streetPost.userName,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white, // Text color
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    ;
+
+    Widget StreetPostMediaContainer(StreetPost streetPost) {
+      return Container(
+        width: double.infinity,
+        child: Image.asset(
+          streetPost.imagePath,
+          fit: BoxFit.cover,
+        ),
+      );
+    }
+
+    Widget StreetPostContainer(StreetPost streetPost) {
+      return Container(
+        margin: EdgeInsets.symmetric(
+          vertical: 15.0,
+        ),
+        // height: 500.0,
+        width: double.infinity,
+        child: ListTile(
+          title: Column(
+            children: [
+              StreetPostTopBar(streetPost),
+              StreetPostMediaContainer(streetPost)
+            ],
+          ),
+        ),
+      );
+    }
+
     return Column(
       children: [
-        streetpostsHeader,
-        SizedBox(
-          height: double.maxFinite,
-          width: double.infinity,
-          child: ListView.builder(
-              itemCount: streetposts.length,
-              scrollDirection: Axis.vertical,
-              itemBuilder: (context, index) {
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: streetposts
-                      .map(
-                        (mediaObject) => Container(
-                          margin: EdgeInsets.symmetric(
-                            horizontal: 15.0,
-                            vertical: 15.0,
-                          ),
-                          // height: 500.0,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20.0),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black,
-                                spreadRadius: 8.0,
-                                blurRadius: 15,
-                                blurStyle: BlurStyle.outer,
-                                offset: Offset(0, 0),
-                              ),
-                              BoxShadow(
-                                color: const Color.fromARGB(255, 99, 99, 99),
-                                spreadRadius: 5.0,
-                                blurRadius: 2,
-                                blurStyle: BlurStyle.inner,
-                                offset: Offset(0, 0),
-                              ),
-                              BoxShadow(
-                                color: Colors.black,
-                                spreadRadius: 5.0,
-                                blurRadius: 10,
-                                blurStyle: BlurStyle.outer,
-                                offset: Offset(0, 5),
-                              ),
-                            ],
-                          ),
-                          child: ListTile(
-                              title: Column(
-                            children: [
-                              Align(
-                                alignment: Alignment.topLeft,
-                                child: Row(
-                                  children: [
-                                    ClipOval(
-                                      child: Image.asset(
-                                        mediaObject.profilePicture,
-                                        width: 50.0,
-                                        height: 50.0,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    Container(
-                                      width: 180.0,
-                                      padding: EdgeInsets.symmetric(
-                                        vertical: 5.0,
-                                      ),
-                                      decoration: BoxDecoration(
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Colors.black,
-                                            spreadRadius: 5.0,
-                                            blurRadius: 5.0,
-                                            blurStyle: BlurStyle.outer,
-                                          ),
-                                        ],
-                                        borderRadius: BorderRadius.horizontal(
-                                          left: Radius.circular(20.0),
-                                          right: Radius.circular(20.0),
-                                        ),
-                                        color: GlobalStyles.streetGrey
-                                            .withOpacity(
-                                                0.8), // Background color
-                                      ),
-                                      child: Text(
-                                        mediaObject.userName,
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.w500,
-                                          color: Colors.white, // Text color
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Container(
-                                child: Image.asset(
-                                  mediaObject.imagePath,
-                                  fit: BoxFit.cover,
-                                ),
-                              )
-                            ],
-                          )),
-                        ),
-                      )
-                      .toList(),
-                );
-              }),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: streetposts
+              .map(
+                (streetPost) => StreetPostContainer(streetPost),
+              )
+              .toList(),
         )
       ],
     );
   }
 }
 
-class PostTopBar extends StatelessWidget {
-  const PostTopBar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
-
-final streetpostsHeader = Container(
+final StreetPostsHeader = Container(
   width: double.infinity,
   margin: EdgeInsets.symmetric(vertical: 35.0),
   decoration: BoxDecoration(
@@ -213,13 +182,13 @@ final streetpostsHeader = Container(
   ),
 );
 
-class MediaObject {
+class StreetPost {
   final String imagePath;
   final String userName;
   final String profilePicture;
   final DateTime createdAt;
 
-  MediaObject(
+  StreetPost(
       {required this.imagePath,
       required this.userName,
       required this.profilePicture,

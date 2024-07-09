@@ -12,38 +12,38 @@ class Notifications extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<MediaObject> notifications = [
-      MediaObject(
+    final List<StreetPost> notifications = [
+      StreetPost(
         imagePath: 'assets/images/theTerminal_black.png',
         userName: 'xhantibaai has done something you should know about',
         profilePicture: 'assets/images/theTerminal_blue.png',
         createdAt: DateTime.now(),
       ),
-      MediaObject(
+      StreetPost(
         imagePath: 'assets/images/theTerminal_black.png',
         userName: 'xhantibaai has done something you should know about',
         profilePicture: 'assets/images/theTerminal_blue.png',
         createdAt: DateTime.now(),
       ),
-      MediaObject(
+      StreetPost(
         imagePath: 'assets/images/theTerminal_black.png',
         userName: 'xhantibaai has done something you should know about',
         profilePicture: 'assets/images/theTerminal_blue.png',
         createdAt: DateTime.now(),
       ),
-      MediaObject(
+      StreetPost(
         imagePath: 'assets/images/theTerminal_black.png',
         userName: 'xhantibaai has done something you should know about',
         profilePicture: 'assets/images/theTerminal_blue.png',
         createdAt: DateTime.now(),
       ),
-      MediaObject(
+      StreetPost(
         imagePath: 'assets/images/theTerminal_black.png',
         userName: 'xhantibaai has done something you should know about',
         profilePicture: 'assets/images/theTerminal_blue.png',
         createdAt: DateTime.now(),
       ),
-      MediaObject(
+      StreetPost(
         imagePath: 'assets/images/theTerminal_black.png',
         userName: 'xhantibaai has done something you should know about',
         profilePicture: 'assets/images/theTerminal_blue.png',
@@ -63,7 +63,7 @@ class Notifications extends StatelessWidget {
             SliverList(
               delegate: SliverChildBuilderDelegate(
                     (context, index) {
-                  final mediaObject = notifications[index];
+                  final streetPost = notifications[index];
                   return Container(
                     margin: EdgeInsets.symmetric(
                       horizontal: 15.0,
@@ -102,7 +102,7 @@ class Notifications extends StatelessWidget {
                                   margin: EdgeInsets.only(right: 10.0),
                                   child: ClipOval(
                                     child: Image.asset(
-                                      mediaObject.profilePicture,
+                                      streetPost.profilePicture,
                                       width: 50.0,
                                       height: 50.0,
                                       fit: BoxFit.cover,
@@ -111,7 +111,7 @@ class Notifications extends StatelessWidget {
                                 ),
                                 Expanded(
                                   child: Text(
-                                    mediaObject.userName,
+                                    streetPost.userName,
                                     style: TextStyle(
                                       fontSize: 16.0,
                                       fontWeight: FontWeight.w500,
