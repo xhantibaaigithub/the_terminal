@@ -49,10 +49,6 @@ final _router = GoRouter(
       path: '/',
       builder: (context, state) => Consumer<AuthState>(
         builder: (context, appState, _) => Terminal(
-          loggedIn: appState.loggedIn,
-          signOut: () {
-            FirebaseAuth.instance.signOut();
-          },
           loggedInUser: appState.getLoggedInUser,
         ),
       ),

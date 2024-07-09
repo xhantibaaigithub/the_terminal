@@ -6,28 +6,28 @@ class UpT24 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<MediaObject> upT24Posts = [
-      MediaObject(
+    final List<UpT24Post> upT24Posts = [
+      UpT24Post(
         imagePath: 'assets/images/theTerminal_black.png',
         text: 'abcdefghijklmnopqrs',
       ),
-      MediaObject(
+      UpT24Post(
         imagePath: 'assets/images/theTerminal_black.png',
         text: 'abcdefghijklmnopqrs',
       ),
-      MediaObject(
+      UpT24Post(
         imagePath: 'assets/images/theTerminal_black.png',
         text: 'abcdefghijklmnopqrs',
       ),
-      MediaObject(
+      UpT24Post(
         imagePath: 'assets/images/theTerminal_black.png',
         text: 'abcdefghijklmnopqrs',
       ),
-      MediaObject(
+      UpT24Post(
         imagePath: 'assets/images/theTerminal_black.png',
         text: 'abcdefghijklmnopqrs',
       ),
-      MediaObject(
+      UpT24Post(
         imagePath: 'assets/images/theTerminal_black.png',
         text: 'abcdefghijklmnopqrs',
       ),
@@ -37,8 +37,8 @@ class UpT24 extends StatelessWidget {
       children: [
         upT24Header,
         Container(
-          // padding: EdgeInsets.symmetric(vertical: 10),
-          height: 235.0,
+          height: 200.00,
+          width: double.infinity,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20.0),
             boxShadow: [
@@ -53,18 +53,19 @@ class UpT24 extends StatelessWidget {
           child: ListView.builder(
             itemCount: upT24Posts.length,
             scrollDirection: Axis.horizontal,
+            clipBehavior: Clip.none,
             itemBuilder: (context, index) {
               return Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: upT24Posts
                     .map(
-                      (mediaObject) => Container(
+                      (upT24Post) => Container(
                         margin: EdgeInsets.symmetric(
                           horizontal: 15.0,
                           vertical: 15.0,
                         ),
-                        height: 180.0,
-                        width: 180.0,
+                        height: 150.0,
+                        width: 150.0,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(200.0),
                           boxShadow: [
@@ -95,14 +96,14 @@ class UpT24 extends StatelessWidget {
                           children: [
                             ClipOval(
                               child: Image.asset(
-                                mediaObject.imagePath,
-                                width: 180.0,
-                                height: 180.0,
+                                upT24Post.imagePath,
+                                // width: 180.0,
+                                // height: 180.0,
                                 fit: BoxFit.cover,
                               ),
                             ),
                             Container(
-                              width: 180.0,
+                              // width: 180.0,
                               padding: EdgeInsets.symmetric(
                                 vertical: 5.0,
                               ),
@@ -123,7 +124,7 @@ class UpT24 extends StatelessWidget {
                                     .withOpacity(0.8), // Background color
                               ),
                               child: Text(
-                                mediaObject.text,
+                                upT24Post.text,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   fontSize: 16.0,
@@ -146,24 +147,15 @@ class UpT24 extends StatelessWidget {
   }
 }
 
-class MediaObject {
+class UpT24Post {
   final String imagePath;
   final String text;
 
-  MediaObject({required this.imagePath, required this.text});
-}
-
-class UpT24Header extends StatelessWidget {
-  const UpT24Header({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
+  UpT24Post({required this.imagePath, required this.text});
 }
 
 final upT24Header = Container(
-  width: double.infinity,
+  width: double.maxFinite,
   margin: EdgeInsets.symmetric(vertical: 35.0),
   padding: EdgeInsets.symmetric(vertical: 3.0),
   decoration: BoxDecoration(

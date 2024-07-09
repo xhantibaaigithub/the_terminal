@@ -5,22 +5,18 @@ import 'package:terminal_mobile_app/component_widgets/buttons/scamto_terminal_bu
 import 'package:terminal_mobile_app/component_widgets/navbars/terminal_navbar.dart';
 
 class Terminal extends StatelessWidget {
-  final bool loggedIn;
-  final void Function() signOut;
   final User? loggedInUser;
 
-  Terminal(
-      {super.key,
-      required this.loggedIn,
-      required this.signOut,
-      required this.loggedInUser,
-      });
+  Terminal({
+    super.key,
+    required this.loggedInUser,
+  });
 
   @override
   Widget build(BuildContext context) {
-    print("Over here: $loggedInUser");
+    final isLoggedIn = loggedInUser != null;
     return Visibility(
-        visible: loggedIn,
+        visible: isLoggedIn,
         child: Scaffold(
           body: CustomScrollView(
             slivers: <Widget>[
@@ -29,7 +25,7 @@ class Terminal extends StatelessWidget {
                 delegate: SliverChildListDelegate(
                   <Widget>[
                     ListTile(
-                      title: EstratiniTerminalButton(loggedIn: loggedIn),
+                      title: EstratiniTerminalButton(),
                     ),
                     ListTile(
                       title: ScamtoTerminalButton(),

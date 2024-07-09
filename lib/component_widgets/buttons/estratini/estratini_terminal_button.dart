@@ -4,9 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:terminal_mobile_app/global_styles/global_styles.dart';
 
 class EstratiniTerminalButton extends StatelessWidget {
-  final bool loggedIn;
-
-  EstratiniTerminalButton({super.key, required this.loggedIn});
+  EstratiniTerminalButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +38,7 @@ class EstratiniTerminalButton extends StatelessWidget {
           ]),
       child: InkWell(
         onTap: () {
-          loggedIn ? context.go('/estratini') : context.go('/login');
+          context.go('/estratini');
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,

@@ -15,6 +15,8 @@ class Estratini extends StatelessWidget {
       visible: loggedInUser != null,
       child: Scaffold(
         body: CustomScrollView(
+          clipBehavior: Clip.none,
+          scrollDirection: Axis.vertical,
           slivers: <Widget>[
             EstratiniNavbar(),
             SliverList(
