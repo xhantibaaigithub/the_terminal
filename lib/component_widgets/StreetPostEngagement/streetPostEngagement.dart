@@ -8,7 +8,7 @@ class StreetPostEngagement extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 15.0),
+      margin: EdgeInsets.only(top: 15.0, left: 10.0, right: 10.0, bottom: 20.0),
       width: double.maxFinite,
       padding: EdgeInsets.all(5.0),
       decoration: BoxDecoration(
@@ -16,8 +16,8 @@ class StreetPostEngagement extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: Colors.black,
-            spreadRadius: 8.0,
-            blurRadius: 15,
+            spreadRadius: 10.0,
+            blurRadius: 10,
             blurStyle: BlurStyle.outer,
             offset: Offset(0, 0),
           ),
@@ -31,7 +31,7 @@ class StreetPostEngagement extends StatelessWidget {
           BoxShadow(
             color: Colors.black,
             spreadRadius: 5.0,
-            blurRadius: 10,
+            blurRadius: 7.0,
             blurStyle: BlurStyle.outer,
             offset: Offset(0, 7),
           ),

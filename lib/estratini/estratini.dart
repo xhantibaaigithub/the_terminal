@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:terminal_mobile_app/component_widgets/navbars/estratini_navbar.dart';
 import 'package:terminal_mobile_app/estratini/streetposts.dart';
 import 'package:terminal_mobile_app/estratini/upT24/upt24.dart';
+import 'package:terminal_mobile_app/global_styles/global_styles.dart';
 
 class Estratini extends StatelessWidget {
   final User? loggedInUser;
@@ -24,6 +25,7 @@ class Estratini extends StatelessWidget {
                 <Widget>[
                   Container(
                     decoration: BoxDecoration(
+                      color: GlobalStyles.lightStreetGrey,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(20.0),
                         topRight: Radius.circular(20.0),

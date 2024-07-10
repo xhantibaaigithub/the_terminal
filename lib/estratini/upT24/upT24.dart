@@ -38,7 +38,6 @@ class UpT24 extends StatelessWidget {
         upT24Header,
         Container(
           height: 200.00,
-          width: double.infinity,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20.0),
             boxShadow: [
@@ -98,13 +97,10 @@ class UpT24 extends StatelessWidget {
                             ClipOval(
                               child: Image.asset(
                                 upT24Post.imagePath,
-                                // width: 180.0,
-                                // height: 180.0,
                                 fit: BoxFit.cover,
                               ),
                             ),
                             Container(
-                              // width: 180.0,
                               padding: EdgeInsets.symmetric(
                                 vertical: 5.0,
                               ),

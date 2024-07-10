@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:terminal_mobile_app/component_widgets/StreetPostEngagement/streetPostEngagement.dart';
 import 'package:terminal_mobile_app/global_styles/global_styles.dart';
@@ -126,13 +125,38 @@ class StreetPosts extends StatelessWidget {
     Widget StreetPostContainer(StreetPost streetPost) {
       return Container(
         width: 800.0,
-        height: 500.0,
+        // height: ,
         decoration: BoxDecoration(
-            color: Colors.grey,
-            borderRadius: BorderRadius.circular(10.0),
-            border: Border(
-                top: BorderSide(color: Colors.black, width: 2.0),
-                right: BorderSide(color: Colors.black, width: 2.0))),
+          color: GlobalStyles.backgroundWhite,
+          borderRadius: BorderRadius.circular(10.0),
+          border: Border(
+            top: BorderSide(color: Colors.black, width: 3.5),
+            bottom: BorderSide(color: Colors.black, width: 3.5),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black,
+              spreadRadius: 8.0,
+              blurRadius: 15,
+              blurStyle: BlurStyle.outer,
+              offset: Offset(0, 0),
+            ),
+            BoxShadow(
+              color: GlobalStyles.backgroundWhite,
+              spreadRadius: 5.0,
+              blurRadius: 2,
+              blurStyle: BlurStyle.inner,
+              offset: Offset(0, 0),
+            ),
+            BoxShadow(
+              color: Colors.black,
+              spreadRadius: 5.0,
+              blurRadius: 10,
+              blurStyle: BlurStyle.outer,
+              offset: Offset(0, 7),
+            ),
+          ],
+        ),
         margin: EdgeInsets.symmetric(vertical: 15.0),
         child: Column(
           children: [
@@ -168,6 +192,7 @@ final StreetPostsHeader = Container(
   width: double.infinity,
   margin: EdgeInsets.symmetric(vertical: 35.0),
   decoration: BoxDecoration(
+    color: GlobalStyles.backgroundWhite,
     borderRadius: BorderRadius.all(Radius.circular(35.0)),
     boxShadow: [
       BoxShadow(
@@ -197,9 +222,10 @@ final StreetPostsHeader = Container(
     'Street Posts',
     style: TextStyle(
       fontSize: 25.0,
-      color: GlobalStyles.backgroundWhite,
+      fontWeight: FontWeight.bold,
+      color: Colors.black,
       shadows: [
-        Shadow(color: Colors.black, blurRadius: 5.0, offset: Offset(0, 7.0)),
+        Shadow(color: Colors.grey, blurRadius: 2.0, offset: Offset(-3.0, 3.0)),
       ],
     ),
     textAlign: TextAlign.center,

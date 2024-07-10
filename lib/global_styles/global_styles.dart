@@ -8,5 +8,6 @@ class GlobalStyles {
   static const lightBlue = Color.fromRGBO(135, 206, 233, 1);
   static const veryLightBlue = Color.fromRGBO(205, 238, 246, 1);
   static const streetGrey = Color.fromRGBO(47, 79, 79, 1);
+  static const lightStreetGrey = Color.fromRGBO(44, 96, 96, 1.0);
   static const lightGrey = Color.fromRGBO(117, 135, 153, 1);
 }
