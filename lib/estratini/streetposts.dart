@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:terminal_mobile_app/component_widgets/StreetPostEngagement/streetPostEngagement.dart';
 import 'package:terminal_mobile_app/global_styles/global_styles.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
@@ -47,17 +49,15 @@ class StreetPosts extends StatelessWidget {
     ];
 
     Widget StreetPostTopBar(StreetPost streetPost) {
-      final createdTimeAgo = DateTime.now().subtract(Duration(minutes: 1));
-
       return Row(
         children: [
           Container(
-            margin: EdgeInsets.symmetric(vertical: 15.0),
+            margin: EdgeInsets.symmetric(vertical: 15.0, horizontal: 7.0),
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
                   color: Colors.black,
-                  spreadRadius: 5.0,
+                  spreadRadius: 3.0,
                   blurRadius: 5.0,
                   blurStyle: BlurStyle.outer,
                 )
@@ -76,7 +76,7 @@ class StreetPosts extends StatelessWidget {
           SizedBox(width: 10.0),
           Expanded(
             child: Container(
-              margin: EdgeInsets.only(left: 10.0),
+              margin: EdgeInsets.only(left: 5.0),
               padding: EdgeInsets.symmetric(vertical: 5.0),
               decoration: BoxDecoration(
                 boxShadow: [
@@ -115,28 +115,38 @@ class StreetPosts extends StatelessWidget {
 
     Widget StreetPostMediaContainer(StreetPost streetPost) {
       return Container(
-        width: double.infinity,
         child: Image.asset(
           streetPost.imagePath,
           fit: BoxFit.cover,
+          width: double.infinity,
         ),
       );
     }
 
     Widget StreetPostContainer(StreetPost streetPost) {
       return Container(
-        width: double.infinity,
+        width: 800.0,
+        height: 500.0,
+        decoration: BoxDecoration(
+            color: Colors.grey,
+            borderRadius: BorderRadius.circular(10.0),
+            border: Border(
+                top: BorderSide(color: Colors.black, width: 2.0),
+                right: BorderSide(color: Colors.black, width: 2.0))),
         margin: EdgeInsets.symmetric(vertical: 15.0),
         child: Column(
           children: [
             StreetPostTopBar(streetPost),
             StreetPostMediaContainer(streetPost),
+            StreetPostEngagement()
           ],
         ),
       );
     }
 
     return SingleChildScrollView(
+      clipBehavior: Clip.none,
+      padding: EdgeInsets.zero,
       child: Column(
         children: [
           StreetPostsHeader,

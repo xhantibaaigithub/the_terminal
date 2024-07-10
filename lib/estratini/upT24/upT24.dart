@@ -9,27 +9,27 @@ class UpT24 extends StatelessWidget {
     final List<UpT24Post> upT24Posts = [
       UpT24Post(
         imagePath: 'assets/images/theTerminal_black.png',
-        text: 'abcdefghijklmnopqrs',
+        text: 'abcdefghijklmnopqrstu',
       ),
       UpT24Post(
         imagePath: 'assets/images/theTerminal_black.png',
-        text: 'abcdefghijklmnopqrs',
+        text: 'abcdefghijklmnopqrstu',
       ),
       UpT24Post(
         imagePath: 'assets/images/theTerminal_black.png',
-        text: 'abcdefghijklmnopqrs',
+        text: 'abcdefghijklmnopqrstu',
       ),
       UpT24Post(
         imagePath: 'assets/images/theTerminal_black.png',
-        text: 'abcdefghijklmnopqrs',
+        text: 'abcdefghijklmnopqrstu',
       ),
       UpT24Post(
         imagePath: 'assets/images/theTerminal_black.png',
-        text: 'abcdefghijklmnopqrs',
+        text: 'abcdefghijklmnopqrstu',
       ),
       UpT24Post(
         imagePath: 'assets/images/theTerminal_black.png',
-        text: 'abcdefghijklmnopqrs',
+        text: 'abcdefghijklmnopqrstu',
       ),
     ];
 
@@ -128,8 +128,8 @@ class UpT24 extends StatelessWidget {
                                 upT24Post.text,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.w500,
+                                  fontSize: 12.0,
+                                  fontWeight: FontWeight.w600,
                                   color: Colors.black, // Text color
                                 ),
                               ),
