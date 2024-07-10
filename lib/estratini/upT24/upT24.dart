@@ -43,11 +43,12 @@ class UpT24 extends StatelessWidget {
             borderRadius: BorderRadius.circular(20.0),
             boxShadow: [
               BoxShadow(
-                  color: Colors.white10,
-                  spreadRadius: 3.0,
-                  blurRadius: 10.0,
-                  blurStyle: BlurStyle.solid,
-                  offset: Offset(0, 0)),
+                color: Colors.white10,
+                spreadRadius: 3.0,
+                blurRadius: 10.0,
+                blurStyle: BlurStyle.solid,
+                offset: Offset(0, 0),
+              ),
             ],
           ),
           child: ListView.builder(

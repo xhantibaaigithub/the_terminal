@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:terminal_mobile_app/global_styles/global_styles.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 class StreetPosts extends StatelessWidget {
   const StreetPosts({super.key});
@@ -11,7 +12,7 @@ class StreetPosts extends StatelessWidget {
         imagePath: 'assets/images/theTerminal_black.png',
         userName: 'abcdefghijklmnopqrs',
         profilePicture: 'assets/images/theTerminal_blue.png',
-        createdAt: DateTime.timestamp(),
+        createdAt: DateTime.now().subtract(Duration(minutes: 15)),
       ),
       StreetPost(
         imagePath: 'assets/images/Instagram.png',
@@ -23,34 +24,47 @@ class StreetPosts extends StatelessWidget {
         imagePath: 'assets/images/ScamtoLogo.png',
         userName: 'abcdefghijklmnopqrs',
         profilePicture: 'assets/images/theTerminal_blue.png',
-        createdAt: DateTime.timestamp(),
+        createdAt: DateTime.now().subtract(Duration(minutes: 1)),
       ),
       StreetPost(
         imagePath: 'assets/images/Xhanti_Unnamed.png',
         userName: 'abcdefghijklmnopqrst',
         profilePicture: 'assets/images/theTerminal_blue.png',
-        createdAt: DateTime.timestamp(),
+        createdAt: DateTime.now().subtract(Duration(hours: 7)),
       ),
       StreetPost(
         imagePath: 'assets/images/wallpaper_process.png',
         userName: 'abcdefghijklmnopqrs',
         profilePicture: 'assets/images/theTerminal_blue.png',
-        createdAt: DateTime.timestamp(),
+        createdAt: DateTime.now().subtract(Duration(days: 10)),
       ),
       StreetPost(
         imagePath: 'assets/images/theTerminal_blue.png',
         userName: 'abcdefghijklmnopqrs',
         profilePicture: 'assets/images/theTerminal_blue.png',
-        createdAt: DateTime.timestamp(),
+        createdAt: DateTime.now().subtract(Duration(days: 3)),
       ),
     ];
 
     Widget StreetPostTopBar(StreetPost streetPost) {
-      return Container(
-        margin: EdgeInsets.only(bottom: 15.0),
-        child: Row(
-          children: [
-            ClipOval(
+      final createdTimeAgo = DateTime.now().subtract(Duration(minutes: 1));
+
+      return Row(
+        children: [
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 15.0),
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black,
+                  spreadRadius: 5.0,
+                  blurRadius: 5.0,
+                  blurStyle: BlurStyle.outer,
+                )
+              ],
+              borderRadius: BorderRadius.circular(200),
+            ),
+            child: ClipOval(
               child: Image.asset(
                 streetPost.profilePicture,
                 width: 50.0,
@@ -58,11 +72,12 @@ class StreetPosts extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            Container(
-              width: 180.0,
-              padding: EdgeInsets.symmetric(
-                vertical: 5.0,
-              ),
+          ),
+          SizedBox(width: 10.0),
+          Expanded(
+            child: Container(
+              margin: EdgeInsets.only(left: 10.0),
+              padding: EdgeInsets.symmetric(vertical: 5.0),
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
@@ -83,18 +98,20 @@ class StreetPosts extends StatelessWidget {
                 streetPost.userName,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 16.0,
+                  fontSize: 12.0,
                   fontWeight: FontWeight.w500,
                   color: Colors.white, // Text color
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+          SizedBox(width: 10.0),
+          Text(
+              style: TextStyle(fontSize: 12.0),
+              timeago.format(streetPost.createdAt)),
+        ],
       );
     }
-
-    ;
 
     Widget StreetPostMediaContainer(StreetPost streetPost) {
       return Container(
@@ -108,33 +125,31 @@ class StreetPosts extends StatelessWidget {
 
     Widget StreetPostContainer(StreetPost streetPost) {
       return Container(
-        margin: EdgeInsets.symmetric(
-          vertical: 15.0,
-        ),
-        // height: 500.0,
         width: double.infinity,
-        child: ListTile(
-          title: Column(
-            children: [
-              StreetPostTopBar(streetPost),
-              StreetPostMediaContainer(streetPost)
-            ],
-          ),
+        margin: EdgeInsets.symmetric(vertical: 15.0),
+        child: Column(
+          children: [
+            StreetPostTopBar(streetPost),
+            StreetPostMediaContainer(streetPost),
+          ],
         ),
       );
     }
 
-    return Column(
-      children: [
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: streetposts
-              .map(
-                (streetPost) => StreetPostContainer(streetPost),
-              )
-              .toList(),
-        )
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          StreetPostsHeader,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: streetposts
+                .map(
+                  (streetPost) => StreetPostContainer(streetPost),
+                )
+                .toList(),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -143,9 +158,7 @@ final StreetPostsHeader = Container(
   width: double.infinity,
   margin: EdgeInsets.symmetric(vertical: 35.0),
   decoration: BoxDecoration(
-    borderRadius: BorderRadius.all(
-      Radius.circular(35.0),
-    ),
+    borderRadius: BorderRadius.all(Radius.circular(35.0)),
     boxShadow: [
       BoxShadow(
         color: Colors.black,
@@ -173,11 +186,12 @@ final StreetPostsHeader = Container(
   child: Text(
     'Street Posts',
     style: TextStyle(
-        fontSize: 25.0,
-        color: GlobalStyles.backgroundWhite,
-        shadows: [
-          Shadow(color: Colors.black, blurRadius: 5.0, offset: Offset(0, 7.0))
-        ]),
+      fontSize: 25.0,
+      color: GlobalStyles.backgroundWhite,
+      shadows: [
+        Shadow(color: Colors.black, blurRadius: 5.0, offset: Offset(0, 7.0)),
+      ],
+    ),
     textAlign: TextAlign.center,
   ),
 );
@@ -188,9 +202,10 @@ class StreetPost {
   final String profilePicture;
   final DateTime createdAt;
 
-  StreetPost(
-      {required this.imagePath,
-      required this.userName,
-      required this.profilePicture,
-      required this.createdAt});
+  StreetPost({
+    required this.imagePath,
+    required this.userName,
+    required this.profilePicture,
+    required this.createdAt,
+  });
 }
