@@ -19,6 +19,7 @@ class Terminal extends StatelessWidget {
         visible: isLoggedIn,
         child: Scaffold(
           body: CustomScrollView(
+            scrollDirection: Axis.vertical,
             slivers: <Widget>[
               TerminalNavbar(),
               SliverList(
@@ -26,6 +27,21 @@ class Terminal extends StatelessWidget {
                   <Widget>[
                     ListTile(
                       title: EstratiniTerminalButton(),
+                    ),
+                    ListTile(
+                      title: ScamtoTerminalButton(),
+                    ),
+                    ListTile(
+                      title: ScamtoTerminalButton(),
+                    ),
+                    ListTile(
+                      title: ScamtoTerminalButton(),
+                    ),
+                    ListTile(
+                      title: ScamtoTerminalButton(),
+                    ),
+                    ListTile(
+                      title: ScamtoTerminalButton(),
                     ),
                     ListTile(
                       title: ScamtoTerminalButton(),

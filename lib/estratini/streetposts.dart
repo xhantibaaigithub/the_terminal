@@ -125,7 +125,6 @@ class StreetPosts extends StatelessWidget {
     Widget StreetPostContainer(StreetPost streetPost) {
       return Container(
         width: 800.0,
-        // height: ,
         decoration: BoxDecoration(
           color: GlobalStyles.backgroundWhite,
           borderRadius: BorderRadius.circular(10.0),
