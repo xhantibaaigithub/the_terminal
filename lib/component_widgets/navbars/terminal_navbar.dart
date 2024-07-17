@@ -35,12 +35,12 @@ class TerminalNavbar extends StatelessWidget {
                 offset: Offset(0, 5),
                 blurRadius: 10,
                 blurStyle: BlurStyle.inner),
-            BoxShadow(
-                color: GlobalStyles.backgroundWhite,
-                spreadRadius: 7.0,
-                offset: Offset(0, -5),
-                blurRadius: 10,
-                blurStyle: BlurStyle.solid),
+            // BoxShadow(
+            //     color: GlobalStyles.backgroundWhite,
+            //     spreadRadius: 7.0,
+            //     offset: Offset(0, -5),
+            //     blurRadius: 10,
+            //     blurStyle: BlurStyle.solid),
           ],
           borderRadius: BorderRadius.circular(15.0),
         ),

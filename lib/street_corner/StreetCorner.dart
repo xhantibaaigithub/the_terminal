@@ -43,7 +43,13 @@ class StreetCorner extends StatelessWidget {
                                   },
                                   child: Top100Button),
                               KhalendaButton,
-                              Bottom100Button
+                              InkWell(
+                                  onTap: () {
+                                    loggedInUser != null
+                                        ? context.go('/estratini/bottomhundred')
+                                        : context.go('/login');
+                                  },
+                                  child: Bottom100Button)
                             ],
                           ),
                         )
@@ -67,10 +73,9 @@ final Top100Button = InkWell(
     decoration: BoxDecoration(
       image: DecorationImage(
         image: AssetImage("assets/images/top_100_header.png"),
-        // Replace with your background image path
-        fit: BoxFit.cover, // Adjust fit as needed
+        fit: BoxFit.cover,
       ),
-      color: Colors.blue, // Fallback color in case the image doesn't load
+      color: GlobalStyles.scamtoBlue,
       borderRadius: BorderRadius.all(
         Radius.circular(35.0),
       ),
@@ -100,8 +105,7 @@ final Top100Button = InkWell(
     ),
     child: Center(
       child: Text(
-        'Top 100'
-        '',
+        'Top 100',
         style: TextStyle(
           fontSize: 25.0,
           backgroundColor: Colors.black26,

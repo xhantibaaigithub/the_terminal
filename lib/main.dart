@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:terminal_mobile_app/bottom100/bottom100.dart';
 
 import 'package:terminal_mobile_app/estratini/estratini.dart';
 import 'package:terminal_mobile_app/register/register.dart';
@@ -83,7 +84,8 @@ final _router = GoRouter(
         ),
       ),
       redirect: (context, state) {
-        final loggedIn = Provider.of<AuthState>(context, listen: false).loggedIn;
+        final loggedIn =
+            Provider.of<AuthState>(context, listen: false).loggedIn;
         if (!loggedIn) {
           return '/login';
         }
@@ -98,7 +100,24 @@ final _router = GoRouter(
         ),
       ),
       redirect: (context, state) {
-        final loggedIn = Provider.of<AuthState>(context, listen: false).loggedIn;
+        final loggedIn =
+            Provider.of<AuthState>(context, listen: false).loggedIn;
+        if (!loggedIn) {
+          return '/login';
+        }
+        return null;
+      },
+    ),
+    GoRoute(
+      path: '/estratini/bottomhundred',
+      builder: (context, state) => Consumer<AuthState>(
+        builder: (context, appState, _) => Bottom100(
+          loggedInUser: appState.getLoggedInUser,
+        ),
+      ),
+      redirect: (context, state) {
+        final loggedIn =
+            Provider.of<AuthState>(context, listen: false).loggedIn;
         if (!loggedIn) {
           return '/login';
         }
@@ -113,7 +132,8 @@ final _router = GoRouter(
         ),
       ),
       redirect: (context, state) {
-        final loggedIn = Provider.of<AuthState>(context, listen: false).loggedIn;
+        final loggedIn =
+            Provider.of<AuthState>(context, listen: false).loggedIn;
         if (!loggedIn) {
           return '/login';
         }
@@ -128,7 +148,8 @@ final _router = GoRouter(
         ),
       ),
       redirect: (context, state) {
-        final loggedIn = Provider.of<AuthState>(context, listen: false).loggedIn;
+        final loggedIn =
+            Provider.of<AuthState>(context, listen: false).loggedIn;
         if (!loggedIn) {
           return '/login';
         }
@@ -145,7 +166,7 @@ final _themeData = ThemeData(
     headerBackgroundColor: Colors.black87,
     headerForegroundColor: GlobalStyles.scamtoBlue,
     dayBackgroundColor: MaterialStateColor.resolveWith(
-          (states) {
+      (states) {
         if (states.contains(MaterialState.disabled)) {
           return Colors.transparent; // Color when disabled
         }
@@ -153,7 +174,7 @@ final _themeData = ThemeData(
       },
     ),
     dayForegroundColor: MaterialStateColor.resolveWith(
-          (states) {
+      (states) {
         if (states.contains(MaterialState.disabled)) {
           return Colors.transparent; // Color when disabled
         }
@@ -161,7 +182,7 @@ final _themeData = ThemeData(
       },
     ),
     dayOverlayColor: MaterialStateColor.resolveWith(
-          (states) {
+      (states) {
         if (states.contains(MaterialState.disabled)) {
           return Colors.black; // Color when disabled
         }
@@ -170,7 +191,7 @@ final _themeData = ThemeData(
     ),
     dayStyle: TextStyle(fontSize: 18.0),
     todayBackgroundColor: MaterialStateColor.resolveWith(
-          (states) {
+      (states) {
         if (states.contains(MaterialState.disabled)) {
           return Colors.blueGrey; // Color when disabled
         }

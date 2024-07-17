@@ -63,7 +63,7 @@ class EstratiniSearchButton extends StatelessWidget {
             ),
           ]),
           child: Icon(
-            Icons.search,
+            Icons.control_point_duplicate,
             size: 35.0,
             color: Colors.black,
           ),

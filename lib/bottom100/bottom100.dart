@@ -4,14 +4,14 @@ import 'package:timeago/timeago.dart' as timeago;
 import 'package:terminal_mobile_app/component_widgets/navbars/estratini_navbar.dart';
 import 'package:terminal_mobile_app/global_styles/global_styles.dart';
 
-class Top100 extends StatelessWidget {
+class Bottom100 extends StatelessWidget {
   final User? loggedInUser;
 
-  const Top100({super.key, required this.loggedInUser});
+  const Bottom100({super.key, required this.loggedInUser});
 
   @override
   Widget build(BuildContext context) {
-    final List<StreetPost> top100StreetPosts = [
+    final List<StreetPost> bottom100StreetPosts = [
       StreetPost(
           imagePath: 'assets/images/theTerminal_black.png',
           userName: 'abcdefghijklmnopqrs',
@@ -73,27 +73,27 @@ class Top100 extends StatelessWidget {
       ),
     ];
 
-    top100StreetPosts.sort((a, b) => b.likes.compareTo(a.likes));
+    bottom100StreetPosts.sort((a, b) => b.dislikes.compareTo(a.dislikes));
 
     return Scaffold(
       body: Visibility(
         visible: loggedInUser != null,
         child: Container(
-          color: GlobalStyles.veryLightBlue,
+          color: Colors.red,
           child: CustomScrollView(
             slivers: <Widget>[
               EstratiniNavbar(),
               SliverToBoxAdapter(
-                child: Top100Button,
+                child: Bottom100Button,
               ),
               SliverList(
                 delegate: SliverChildBuilderDelegate(
                   (context, index) {
-                    if (index >= top100StreetPosts.length) {
+                    if (index >= bottom100StreetPosts.length) {
                       return null;
                     }
 
-                    final post = top100StreetPosts[index];
+                    final post = bottom100StreetPosts[index];
 
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -152,7 +152,7 @@ class Top100 extends StatelessWidget {
                                       shape: BoxShape.circle,
                                       boxShadow: [
                                         BoxShadow(
-                                          color: Colors.grey.withOpacity(0.5),
+                                          color: Colors.black,
                                           spreadRadius: 2,
                                           blurRadius: 5,
                                           offset: Offset(0, 3),
@@ -160,8 +160,9 @@ class Top100 extends StatelessWidget {
                                       ],
                                     ),
                                     child: CircleAvatar(
-                                      backgroundImage:
-                                          AssetImage(post.profilePicture),
+                                      backgroundImage: AssetImage(
+                                        post.profilePicture,
+                                      ),
                                       radius: 20,
                                     ),
                                   ),
@@ -173,10 +174,12 @@ class Top100 extends StatelessWidget {
                                   ),
                                   SizedBox(width: 8),
                                   Text(
-                                    timeago.format(post.createdAt),
+                                    timeago.format(
+                                      post.createdAt,
+                                    ),
                                     style: TextStyle(
                                       fontSize: 12,
-                                      color: Colors.grey,
+                                      color: Colors.black,
                                     ),
                                   ),
                                 ],
@@ -194,27 +197,33 @@ class Top100 extends StatelessWidget {
                                     Row(
                                       children: [
                                         Icon(
-                                            size: 30.0,
-                                            color: GlobalStyles.scamtoYellow,
-                                            Icons.icecream_rounded),
+                                          size: 30.0,
+                                          color: GlobalStyles.scamtoYellow,
+                                          Icons.icecream_rounded,
+                                        ),
                                         SizedBox(width: 4),
                                         Text(
                                           '${post.likes}',
                                           style: TextStyle(
-                                              color: GlobalStyles.backgroundWhite),
+                                              color:
+                                                  GlobalStyles.backgroundWhite),
                                         ),
                                       ],
                                     ),
                                     Row(
                                       children: [
                                         Icon(
-                                            size: 30.0,
-                                            color: Colors.red,
-                                            Icons.flag_outlined),
+                                          size: 30.0,
+                                          color: Colors.red,
+                                          Icons.flag_outlined,
+                                        ),
                                         SizedBox(width: 4),
-                                        Text('${post.dislikes}',
+                                        Text(
+                                          '${post.dislikes}',
                                           style: TextStyle(
-                                              color: GlobalStyles.backgroundWhite),),
+                                            color: GlobalStyles.backgroundWhite,
+                                          ),
+                                        ),
                                       ],
                                     ),
                                     Row(
@@ -224,9 +233,12 @@ class Top100 extends StatelessWidget {
                                             color: Colors.black,
                                             Icons.groups),
                                         SizedBox(width: 4),
-                                        Text('${post.comment}',
+                                        Text(
+                                          '${post.comment}',
                                           style: TextStyle(
-                                              color: GlobalStyles.backgroundWhite),),
+                                            color: GlobalStyles.backgroundWhite,
+                                          ),
+                                        ),
                                       ],
                                     ),
                                   ],
@@ -246,7 +258,7 @@ class Top100 extends StatelessWidget {
                       ],
                     );
                   },
-                  childCount: top100StreetPosts.length,
+                  childCount: bottom100StreetPosts.length,
                 ),
               ),
             ],
@@ -257,54 +269,52 @@ class Top100 extends StatelessWidget {
   }
 }
 
-final Top100Button = InkWell(
-  child: Container(
-    width: double.infinity * 0.9,
-    margin: EdgeInsets.symmetric(vertical: 35.0),
-    decoration: BoxDecoration(
-      image: DecorationImage(
-        image: AssetImage("assets/images/top_100_header.png"),
-        fit: BoxFit.cover,
-      ),
-      color: Colors.blue,
-      borderRadius: BorderRadius.all(
-        Radius.circular(35.0),
-      ),
-      boxShadow: [
-        BoxShadow(
-          color: Colors.black,
-          spreadRadius: 8.0,
-          blurRadius: 15,
-          blurStyle: BlurStyle.outer,
-          offset: Offset(0, 0),
-        ),
-        BoxShadow(
-          color: GlobalStyles.streetGrey,
-          spreadRadius: 5.0,
-          blurRadius: 2,
-          blurStyle: BlurStyle.inner,
-          offset: Offset(0, 0),
-        ),
-        BoxShadow(
-          color: Colors.black,
-          spreadRadius: 5.0,
-          blurRadius: 10,
-          blurStyle: BlurStyle.outer,
-          offset: Offset(0, 7),
-        ),
-      ],
+final Bottom100Button = Container(
+  width: double.infinity * 0.9,
+  margin: EdgeInsets.symmetric(vertical: 35.0),
+  decoration: BoxDecoration(
+    image: DecorationImage(
+      image: AssetImage("assets/images/bottom_100_header.png"),
+      // Replace with your background image path
+      fit: BoxFit.cover, // Adjust fit as needed
     ),
-    child: Center(
-      child: Text(
-        'Top 100',
-        style: TextStyle(
-          fontSize: 25.0,
-          backgroundColor: Colors.black26,
-          color: GlobalStyles.backgroundWhite,
-          fontWeight: FontWeight.bold,
-        ),
-        textAlign: TextAlign.center,
+    color: Colors.blue, // Fallback color in case the image doesn't load
+    borderRadius: BorderRadius.all(
+      Radius.circular(35.0),
+    ),
+    boxShadow: [
+      BoxShadow(
+        color: Colors.black,
+        spreadRadius: 8.0,
+        blurRadius: 15,
+        blurStyle: BlurStyle.outer,
+        offset: Offset(0, 0),
       ),
+      BoxShadow(
+        color: GlobalStyles.streetGrey,
+        spreadRadius: 5.0,
+        blurRadius: 2,
+        blurStyle: BlurStyle.inner,
+        offset: Offset(0, 0),
+      ),
+      BoxShadow(
+        color: Colors.black,
+        spreadRadius: 5.0,
+        blurRadius: 10,
+        blurStyle: BlurStyle.outer,
+        offset: Offset(0, 7),
+      ),
+    ],
+  ),
+  child: Center(
+    child: Text(
+      'Bottom 100',
+      style: TextStyle(
+        fontSize: 25.0,
+        color: Colors.black,
+        fontWeight: FontWeight.bold,
+      ),
+      textAlign: TextAlign.center,
     ),
   ),
 );
